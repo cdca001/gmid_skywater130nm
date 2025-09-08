@@ -29,3 +29,6 @@ Too complicated for my use case. Uses docker and downloads its own models from s
 after clone, install requirements numpy, scipy, matplotlib using pip.
 cd to gmid git clone, "pip install ." to install package into python environment.
 Devices: https://skywater-pdk.readthedocs.io/en/main/rules/device-details.html
+
+# Issue
+Modelname invalid. After install retries, the issue is still there. The real solution is to change the W and L of transistor. The default unit in skywater PDK is micrometers. Meaning, you do not need to use 1e-6 and instead just use 1 to indicate 1 micron.
