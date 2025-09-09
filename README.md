@@ -32,3 +32,10 @@ Devices: https://skywater-pdk.readthedocs.io/en/main/rules/device-details.html
 
 # Issue
 Modelname invalid. After install retries, the issue is still there. The real solution is to change the W and L of transistor. The default unit in skywater PDK is micrometers. Meaning, you do not need to use 1e-6 and instead just use 1 to indicate 1 micron.
+
+# Update 09-09
+Was able to generate tables using the gmid scripts. Created sky130_lib.py to overwrite some class functions. This is necessary because skywater devices are defined as subcircuits.
+
+# NEXT
+1. Install VSCODE with jupyter and copilot
+2. Create jupyter notebook to create a common source amplifier using gmid methodology
