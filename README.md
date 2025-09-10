@@ -50,6 +50,28 @@ Solution: downgrade conda env numpy version "pip install numpy==1.26.4"
 Cannot plot. missing gm parameter issue.
 Cause: vdssat parameter cannot be found in the model of sky130. 
 Solution: Commented out saving of vdssat.
+Issue still exists, no data for gm and other parameters.
+Solution:
+```
+    def setup_dc_simulation(self, sweep):
+            symbol = self.mos_spice_symbols[1]
+            model = sweep.mos_type
+            # removed vdssat (Sen)
+            self.parameter_table = {
+                "id":     ["save i(vds)",             "i(i_vds)"],
+                "weff":   [f"save @m.{symbol}.m{model}[weff]",   f"v(@m.{symbol}.m{model}[weff])"],
+                "vth":    [f"save @m.{symbol}.m{model}[vth]",    f"v(@m.{symbol}.m{model}[vth])"],
+                "vdsat":  [f"save @m.{symbol}.m{model}[vdsat]",  f"v(@m.{symbol}.m{model}[vdsst])"],
+                "gm":     [f"save @m.{symbol}.m{model}[gm]",     f"@m.{symbol}.m{model}[gm]"],
+                "gmbs":   [f"save @m.{symbol}.m{model}[gmbs]",   f"@m.{symbol}.m{model}[gmbs]"],
+                "gds":    [f"save @m.{symbol}.m{model}[gds]",    f"@m.{symbol}.m{model}[gds]"],
+                "cgg":    [f"save @m.{symbol}.m{model}[cgg]",    f"@m.{symbol}.m{model}[cgg]"],
+                "cgs":    [f"save @m.{symbol}.m{model}[cgs]",    f"@m.{symbol}.m{model}[cgs]"],
+                "cbg":    [f"save @m.{symbol}.m{model}[cbg]",    f"@m.{symbol}.m{model}[cbg]"],
+                "cgd":    [f"save @m.{symbol}.m{model}[cgd]",    f"@m.{symbol}.m{model}[cgd]"],
+                "cdd":    [f"save @m.{symbol}.m{model}[cdd]",    f"@m.{symbol}.m{model}[cdd]"],
+            }
+```
 
 # NEXT
 1. Install VSCODE with jupyter
