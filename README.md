@@ -73,7 +73,12 @@ Solution:
             }
 ```
 
+# Update 09-11
+# Issue
+missing vdsat_expression in numpy data. 
+Cause: typo error in setup_dc_simulation function. See vdsat line for saving parameter. the error is in vdsst.
+
 # NEXT
-1. Install VSCODE with jupyter
+1. Install VSCODE with jupyter - DONE
 2. Create jupyter notebook to create a common source amplifier using gmid methodology
 3. Install copilot in vscode, let copilot design a common source amplifier
