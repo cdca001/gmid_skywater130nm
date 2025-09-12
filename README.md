@@ -77,7 +77,22 @@ Solution:
 # Issue
 missing vdsat_expression in numpy data. 
 Cause: typo error in setup_dc_simulation function. See vdsat line for saving parameter. the error is in vdsst.
+Solution: edit skywater130_lib.py to save vdsat.
 
+# Issue
+Plotting of gain and ft vs length. Plot is wrong. This has something to do with plot function.
+Not high priority.
+
+# Common Source Amplifier Design
+```
+    "GBW":       Spec(5e6, "max", 5),
+    "Gain":      Spec(30, "max", 2),
+    "Ibias":     Spec(20e-6, "min", 1),
+    "ICMR_LOW":  Spec(0.1, "min", 1),
+    "ICMR_HIGH": Spec(0.7, "max", 5),
+    "CMRR":      Spec(2000, "max", 3),
+    "Area":      Spec(15e-12, "min", 1)
+```
 # NEXT
 1. Install VSCODE with jupyter - DONE
 2. Create jupyter notebook to create a common source amplifier using gmid methodology
