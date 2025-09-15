@@ -93,6 +93,29 @@ Not high priority.
     "CMRR":      Spec(2000, "max", 3),
     "Area":      Spec(15e-12, "min", 1)
 ```
+
+# Issue
+dataypes, spec, optimization parameter not found. 
+Solution: change import datatypes to import mosplot.optimizer.datatypes
+
+# Update 09-13
+# Issue with optimization
+Results are not realistic for common source. Probable cause is the length units.
+The table from look up table contains length in meters. So the saved numbers should be multiplied to 1e-6.
+This does not apply to width. You can use weff parameter which is already in meters.
+Solution: override build function of LookupTableGenerator and Mosfet class.
+
+# Update 09-16
+# Issue plotting gain vs VDS to get output swing for a bias point
+Need to create another python function to do this.
+Set V* -> get ID from ID v V* plot
+Create an ngspice deck to drive an NFET with ID to set bias and the gate is driven by an amplifier.
+
+
+# Issues with plotter
+Need to clean plots
+Do not connect endpoints of plots
+
 # NEXT
 1. Install VSCODE with jupyter - DONE
 2. Create jupyter notebook to create a common source amplifier using gmid methodology
